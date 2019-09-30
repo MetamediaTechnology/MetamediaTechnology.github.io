@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Address Form with map Example 4</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="initial-scale=1" >
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://api.longdo.com/map/?key=fortestonlydonotuseinproduction!"></script>
+    <script src="https://api.longdo.com/address-form/js/addressform.js"></script>
+    <script>
+      var myform;
+
+      function init() {
+
+          myform = new longdo.AddressForm('form_div',{
+            map: 'mmmap_div', //id ของ map เพื่อใช้แสดงแผนที่
+            showLabels: false,
+            debugDiv: 'debugoutput'
+          });
+      }
+    </script>
+  </head>
+
+  <body onload="init()">
+    <div style="display: inline-block; vertical-align: top;">
+        <div id="form_div" style="width: 320px;border: solid 2px;">Loading...</div>
+        <button onclick="myform.getFormJSON()" style="margin-top: 1rem;">Submit</button>
+        <button onclick="myform.resetForm()" style="margin-top: 1rem;">Reset</button>
+        <div id="debugoutput" style="max-width: 18rem;background-color: #fff39c;
+        padding: 0.5rem; border-radius: 6px; vertical-align: top; margin-top: 1rem;">
+          ลองกรอกข้อมูลในฟอร์ม หรือลากหมุดบนแผนที่
+        </div>
+    </div>
+
+    <!-- div สำหรับแสดงแผนที่ -->
+    <div id="mmmap_div" style="width:350px;height:350px;display: inline-block;"></div>
+  </body>
+</html>
